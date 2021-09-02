@@ -1,3 +1,6 @@
+# Date:    ${EXAMPLE_DATE}
+# Creator: ${USER}
+---
 apiVersion: v1
 kind: Pod
 metadata:
