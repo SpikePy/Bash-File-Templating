@@ -10,11 +10,11 @@
 
 # Variable File
 
-Define you variables in this file just like you define bash variables. You can also use commands as values for variables
+Define you variables in this file just like you define bash variables (this also enables you to use *bashs string manipulation*). You can also use commands as values for variables e.g. `EXAMPLE_DATE=$(date)`
 
 # Template File
 
-Write your template as normal text file. Use bash variables e.g. `${USER}` for templating. You can even use commands e.g. `$(date)`
+Write your template as normal text file. Use bash variables e.g. `${USER}` for templating (*bash string manipulation* is also possible). You can even use commands e.g. `$(date)`.
 
 
 ## Example
