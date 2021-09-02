@@ -4,5 +4,5 @@ metadata:
   name: debug
 spec:
   containers:
-    - name: alpine
-      image: alpine:latest
+  - name: alpine
+    image: alpine:latest

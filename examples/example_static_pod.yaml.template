@@ -4,5 +4,5 @@ metadata:
   name: ${EXAMPLE_POD_NAME}
 spec:
   containers:
-    - name: ${EXAMPLE_POD_CONTAINER_NAME}
-      image: ${EXAMPLE_POD_CONTAINER_IMAGE}
+  - name: ${EXAMPLE_POD_CONTAINER_NAME}
+    image: ${EXAMPLE_POD_CONTAINER_IMAGE}
