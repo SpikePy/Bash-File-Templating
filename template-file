@@ -1,0 +1,44 @@
+#!/bin/bash
+
+# Show help if script is called not correct
+if [[ "${*,,}" =~ -h ]] || [[ "${*,,}" =~ --help ]] || [ $# -lt 2 ]; then 
+cat << EOF
+Help: Pass the path to your variables file as argument 1 and
+      the files you want to template with it as consecuteive arguments.
+      You can even use wildcards for the filenames.
+EOF
+exit
+fi
+
+# Save arguments in variables
+readonly FILE_VARIABLES=$1
+shift
+readonly FILES_TEMPLATE=$@
+
+
+# Test if files give an arguments exist
+if [ ! -f ${FILE_VARIABLES} ]; then
+  echo -e "\e[1mError: Variables file '${FILE_VARIABLES}' does not exist.\e[0m"
+  echo    "Hint: Use your shells file autocompletion to help you with the arguments."
+  exit 1
+else
+  # Source variable file
+  source ${FILE_VARIABLES}
+fi
+
+
+for file in ${FILES_TEMPLATE[@]}; do
+  
+  # Test if files give an arguments exist
+  if [ ! -f ${file} ]; then
+    echo -e "\e[1mError: Template file '${file}' does not exist.\e[0m"
+    echo    "Hint: Use your shells file autocompletion to help you with the arguments."
+    exit 1
+  fi
+
+eval "cat <<EOF > $(basename -s .template ${file})
+$( cat ${file} )
+EOF"
+  echo "Template: ${file} > $(basename -s .template ${file})"
+
+done
